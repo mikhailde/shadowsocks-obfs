@@ -2,7 +2,7 @@
 
 PASSWORD="${PASSWORD:-$(tr -dc 'A-Za-z0-9' < /dev/urandom | head -c 16)}"
 PORT="${PORT:-8388)}"
-METHOD="${METHOD:-chacha20-ietf-poly1305')}"
+METHOD="${METHOD:-chacha20-ietf-poly1305)}"
 
 cat > /etc/shadowsocks-libev/config.json <<EOF
 {
