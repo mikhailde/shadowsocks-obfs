@@ -35,7 +35,7 @@ This Docker image provides a Shadowsocks-libev server with Simple-OBFS obfuscati
 Once the image is built, you can run the container:
 
 ```bash
-docker run -d -p 8388:8388/tcp -p 8388:8388/udp \
+docker run -d --name shadowsocks-obfs -p 8388:8388/tcp -p 8388:8388/udp \
     -e PASSWORD="your_custom_password" \ # Optional: Set your own password
     -e PORT="your_custom_port" \        # Optional: Set a custom port
     -e METHOD="your_custom_method" \    # Optional: Set a custom encryption method
@@ -43,11 +43,19 @@ docker run -d -p 8388:8388/tcp -p 8388:8388/udp \
 ```
 
 * **`-d`**: Runs the container in detached mode (background).
+* **`--name shadowsocks-obfs`**: Assigns a name to the container for easy management.
 * **`-p 8388:8388/tcp -p 8388:8388/udp`**: Maps host port 8388 to the container's port 8388 for both TCP and UDP traffic. Change `8388` to your desired port if necessary.
 * **`-e PASSWORD="your_custom_password"`**: (Optional) Sets the password for the Shadowsocks server. If omitted, a random password will be generated.
 * **`-e PORT="your_custom_port"`**: (Optional) Sets the port for the Shadowsocks server. Defaults to 8388.
 * **`-e METHOD="your_custom_method"`**: (Optional) Sets the encryption method. Defaults to `chacha20-ietf-poly1305`. See the Shadowsocks-libev documentation for supported methods.
 
+### Obtaining the QR Code
+
+After the container starts, the QR code for client configuration will be displayed in the container logs. To view the logs, run:
+
+```bash
+docker logs shadowsocks-obfs
+```
 
 ## Security Considerations
 
