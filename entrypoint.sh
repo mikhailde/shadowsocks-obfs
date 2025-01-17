@@ -7,7 +7,7 @@ METHOD="${METHOD:-chacha20-ietf-poly1305}"
 cat > /etc/shadowsocks-libev/config.json <<EOF
 {
   "server":"0.0.0.0",
-  "server_port":${PORT},
+  "server_port":"${PORT}",
   "password":"${PASSWORD}",
   "timeout":300,
   "method":"${METHOD}",
